@@ -1,7 +1,0 @@
-
-
-Learning:
-- Vim
-- WSL 
-- Rust 
-
