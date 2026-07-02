@@ -9,6 +9,11 @@
     - Github source code: [repo](https://github.com/tsoding/formula)
     - My repo: [repo](https://github.com/charity-g/3d_formula_render)
 
+- Learning Rust (in WSL with Vim )By Example:
+    - Tags: ['2 hours', 'beginner', 'Rust']
+    - Rust in WSL with VIM toolkit 
+    - Source: [link](https://doc.rust-lang.org/rust-by-example)
+    - My repo: [in this folder](./rust)
 
 # Blogs:
 - https://codeblog.jonskeet.uk/
