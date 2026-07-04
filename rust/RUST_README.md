@@ -11,3 +11,8 @@ Toolchain management with `rustup`:
 In the Rust development environment:
 - all tools are installed to the `~/.cargo/bin` directory
 - contains all Rust toolchains ie: `rustc`, `cargo`, and `rustup`
+
+Vim learning:
+- https://www.youtube.com/watch?v=JBKoBuuoF28&list=PLT98CRl2KxKHy4A5N70jMRYAROzzC2a6x&index=3
+
+
