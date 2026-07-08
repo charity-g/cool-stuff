@@ -83,6 +83,7 @@ fn freezing() {
 
     {
         // Shadowing by immutable `_mutable_integer`
+        // If shadowing with mutable mut keyword, then its fine
         let _mutable_integer = _mutable_integer;
 
         // Error! `_mutable_integer` is frozen in this scope
