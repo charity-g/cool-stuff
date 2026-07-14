@@ -1,9 +1,27 @@
 //! rustc my_ls.rs && ./my_ls -lah
 use std::env;
-    
+use std::fs;    
 
-fn collect_folder(a_flag: bool, h_flag: bool, l_flag: bool) {
-    println!("uninplemented");
+fn collect_folders(a_flag: bool, h_flag: bool, l_flag: bool) {
+    // let results: Result<ReadDir> = fs::read_dir(".");
+    // note that enum Result<T, E> { Ok(T), Err(E), }
+    // Result.unwrap() = use result if Ok, else crash program
+
+    let dirEntries = fs::read_dir(".").unwrap();
+    println!("{:?}", dirEntries);
+    for entry in dirEntries {
+        let entry = entry.unwrap();
+
+        let path = entry.path();
+        let metadata = fs::metadata(&path).unwrap();
+
+        println!(
+            "{} {} bytes",
+            path.display(),
+            metadata.len()
+        );
+    }
+    // note: you cannot collect this: println!("uninplemented {:?}", dirEntries);
 }
 
 /**
@@ -33,5 +51,5 @@ fn main() {
 
     // dbg!(a_flag,h_flag,l_flag);
 
-    collect_folders();
+    collect_folders(a_flag, h_flag, l_flag);
 }
