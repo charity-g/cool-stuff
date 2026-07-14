@@ -29,9 +29,15 @@ Executable
 ```
 
 A crate is the smallest unit of compilation.
+Whenever `rustc some_file.rs` is called, `some_file.rs` is treated as the crate file. If `some_file.rs` has mod declarations in it, then the contents of the module files would be inserted in places where mod declarations in the crate file are found, before running the compiler over it.
+
+In other words, modules do not get compiled individually, only crates get compiled.
+
 Two types of crates:
 - Binary crates → produce an executable.
 - Library crates → produce a library that other crates can use.
+By default, rustc will produce a binary from a crate. This behavior can be overridden by passing the --crate-type flag to lib.
+
 
 A crate is determined by the crate root (main.rs for a binary crate or lib.rs
 for a library crate). Every module reachable from that root belongs to the same
