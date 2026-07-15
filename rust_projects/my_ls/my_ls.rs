@@ -1,6 +1,15 @@
 //! rustc my_ls.rs && ./my_ls -lah
 use std::env;
-use std::fs;    
+use std::fs;
+use std::path::PathBuf;
+
+fn is_hidden_path(path: &PathBuf) -> bool {
+    // TODO
+    println!("is_hidden_path is unimplemented");
+    return true;
+}
+
+
 
 fn collect_folders(a_flag: bool, h_flag: bool, l_flag: bool) {
     // let results: Result<ReadDir> = fs::read_dir(".");
@@ -8,17 +17,23 @@ fn collect_folders(a_flag: bool, h_flag: bool, l_flag: bool) {
     // Result.unwrap() = use result if Ok, else crash program
 
     let dirEntries = fs::read_dir(".").unwrap();
-    println!("{:?}", dirEntries);
+    // println!("{:?}", dirEntries); // This prints the ReadDir iterator
     for entry in dirEntries {
         let entry = entry.unwrap();
 
         let path = entry.path();
         let metadata = fs::metadata(&path).unwrap();
+        
+        if is_hidden_path(&path) && !a_flag {
+            continue;
+        }
 
         println!(
-            "{} {} bytes",
+            "{} {} {} bytes {:?}",
+            entry.file_name().into_string().unwrap(),
             path.display(),
-            metadata.len()
+            metadata.len(),
+            metadata,
         );
     }
     // note: you cannot collect this: println!("uninplemented {:?}", dirEntries);
