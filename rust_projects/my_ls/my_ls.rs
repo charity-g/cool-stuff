@@ -1,12 +1,14 @@
 //! rustc my_ls.rs && ./my_ls -lah
 use std::env;
 use std::fs;
-use std::path::PathBuf;
+use std::ffi::OsStr;
 
-fn is_hidden_path(path: &PathBuf) -> bool {
-    // TODO
-    println!("is_hidden_path is unimplemented");
-    return true;
+fn is_hidden_file(file_name: &OsStr) -> bool {
+    
+    let Some(filename_str) = file_name.to_str() else {
+        return false;
+    };
+    filename_str.starts_with(".")    
 }
 
 
@@ -24,7 +26,7 @@ fn collect_folders(a_flag: bool, h_flag: bool, l_flag: bool) {
         let path = entry.path();
         let metadata = fs::metadata(&path).unwrap();
         
-        if is_hidden_path(&path) && !a_flag {
+        if is_hidden_file(&entry.file_name()) && !a_flag {
             continue;
         }
 
