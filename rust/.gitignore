@@ -11,3 +11,4 @@ modules
 split
 library.rlib
 use_library
+my_ls
