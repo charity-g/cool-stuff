@@ -14,11 +14,13 @@ You'll learn:
 
 * `std::fs`
 * `Path` and `PathBuf`
-* directory traversal
 * metadata
 * permissions
 * sorting
-
+* unix specific imports
+* directory traversal
+* https://en.wikipedia.org/wiki/File-system_permissions#Read_(r)
+* https://linuxize.com/post/how-to-list-files-in-linux-using-the-ls-command/#understanding-ls--al-and-long-format
 ---
 
 ### Build `find`
